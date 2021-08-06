@@ -21,7 +21,7 @@ function userSignUp() {
 		.then(function (response) {
 			console.log(response.sessionToken);
 			let token = response.sessionToken;
-			localStorage, setItem("SessionToken", token);
+			localStorage.setItem("SessionToken", token);
 			tokenChecker();
 		})
 		.catch((err) => {
@@ -35,6 +35,7 @@ function userLogin() {
 	console.log("userLogin Function Called");
 	let userEmail = document.getElementById("emailLogin").value;
 	let userPass = document.getElementById("pwdLogin").value;
+	let newUserData = { user: { email: userEmail, password: userPass } };
 	console.log(userEmail, userPass);
 
 	let userData = { user: { email: userEmail, password: userPass } };
@@ -50,7 +51,7 @@ function userLogin() {
 		.then(function (response) {
 			console.log(response.sessionToken);
 			let token = response.sessionToken;
-			localStorage, setItem("SessionToken", token);
+			localStorage.setItem("SessionToken", token);
 			tokenChecker();
 		})
 		.catch((err) => {
