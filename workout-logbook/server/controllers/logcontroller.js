@@ -3,14 +3,14 @@ let router = express.Router();
 let validateSession = require("../middleware/validate-session");
 const Log = require("../db").import("../models/log");
 
-router.get("/practice", validateSession, function (req, res) {
-	res.send("Hey!! This is an practice route numb nuts");
+router.get("/practice", function (req, res) {
+	res.send("Hey!! This is an practice route");
 });
 
 /*CREATE LOG END POINT --> Allows users to create a workout log with descriptions, definitions, results, and owner properties.
  */
 
-router.post("/", validateSession, (req, res) => {
+router.post("/", (req, res) => {
 	const logEntry = {
 		description: req.body.log.description,
 		definition: req.body.log.definition,
@@ -25,7 +25,7 @@ router.post("/", validateSession, (req, res) => {
 /*VIEW ALL LOGS FOR USER -->	Gets all logs for an individual user.
  */
 
-router.get("/", validateSession, (req, res) => {
+router.get("/", (req, res) => {
 	let userid = req.user.id;
 	Log.findAll({
 		where: { owner_id: userid },
@@ -37,7 +37,7 @@ router.get("/", validateSession, (req, res) => {
 /* FIND LOG BY ID FOR SPECIFIC USER -->	Gets individual logs by id for an individual user.
  */
 
-router.get("/:id", validateSession, (req, res) => {
+router.get("/:id", (req, res) => {
 	Log.findOne({ where: { id: req.params.id, owner_id: req.user.id } }).then(
 		(log) => {
 			if (log) {
@@ -56,7 +56,7 @@ router.get("/:id", validateSession, (req, res) => {
 /* UPDATE LOG -->Allows individual logs to be updated by a user.
  */
 
-router.put("/:id", validateSession, (req, res) => {
+router.put("/:id", (req, res) => {
 	Log.update(
 		{
 			description: req.body.log.description,
@@ -94,7 +94,7 @@ router.put("/:id", validateSession, (req, res) => {
 /*DELETE WORK OUT --> Allows individual logs to be deleted by a user.
  */
 
-router.delete("/:id", validateSession, (req, res) => {
+router.delete("/:id", (req, res) => {
 	Log.destroy({
 		where: {
 			id: req.params.id,
@@ -105,7 +105,7 @@ router.delete("/:id", validateSession, (req, res) => {
 			if (log) {
 				res.status(200).json({
 					log: log,
-					message: "Successfully updated the workout.",
+					message: "Successfully deleted the workout.",
 				});
 			} else {
 				res.status(403).json({
