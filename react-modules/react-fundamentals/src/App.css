@@ -23,8 +23,7 @@ footer p {
 
 /* main */
 .main {
-	background-color: white;
-	color: black;
+	color: #3d3d3d;
 	height: 100%;
 	min-height: 100%;
 }
@@ -47,21 +46,27 @@ ul {
 
 /* Sidebar */
 .sidebar-list-styling {
-	padding-left: 50px;
-	padding-top: 15px;
-	width: 20%;
+	padding-left: 0px;
+	padding-right: 0px;
+
+	width: 25%;
 	background-color: #53565a;
 	color: white;
+	text-align: center;
 }
 
 .sidebar-list a {
 	color: white;
-	padding: 0;
 }
-
+.sidebar-list li {
+	background-color: grey;
+	padding: 10px;
+	border-bottom: solid 1px white;
+}
 .sidebar-route {
 	flex: 1;
 	padding: "00px";
+	background-color: white;
 }
 
 /* header */
