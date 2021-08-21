@@ -11,6 +11,8 @@ import JSXRules from "../concepts/JSXRules";
 import State from "../concepts/States";
 import Effects from "../concepts/Effects";
 import PropsDemo from "../concepts/PropsDemo";
+import TimePiecesApp from "../apps/timer-apps/TimePieceApps";
+import NytApp from "../apps/nyt-app/NytApp";
 
 const Sidebar =() =>{
     return (
@@ -24,6 +26,8 @@ const Sidebar =() =>{
                     <li><Link to="/effects">useEffects</Link></li>
                     <li><Link to="/resources">Resources</Link></li>
                     <li><Link to="/propsdemo">Props Demo</Link></li>
+                    <li><Link to="/timer">Timers</Link></li>
+                    <li><Link to="/NytApp">NytApp</Link></li>
                 </ul>
             </div>
             <div className="sidebar-route">
@@ -36,6 +40,8 @@ const Sidebar =() =>{
                     <Route exact path="/state"><State/></Route>
                     <Route exact path="/effects"><Effects/></Route>
                     <Route exact path="/propsdemo"><PropsDemo/></Route>
+                    <Route exact path ="/timer"><TimePiecesApp /></Route>
+                    <Route exact path ="/NytApp"><NytApp /></Route>
                 </Switch>
             </div>
         </div>
