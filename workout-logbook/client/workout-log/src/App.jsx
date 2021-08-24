@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Component } from 'react'
+
+import React, { useState, useEffect} from 'react'
 import Auth from './auth/Auth';
 import Sitebar from './home/Navbar';
 import WorkoutIndex from './workouts/WorkoutIndex'

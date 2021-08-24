@@ -23,7 +23,7 @@ const Login = (props) => {
     return(
         <div>
             <h1>Login</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form  onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="username">username</Label>
                     <Input onChange={(e) => setUsername(e.target.value)} name="username" value={username} />
